@@ -1,3 +1,4 @@
 rootProject.name = 'mlmall'
 include 'app-auth'
+include 'app-common'
 
