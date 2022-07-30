@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.model.Address;
+import com.enums.RoleEnum;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -18,14 +20,14 @@ public class Member {
 
     private String name;
 
-//    @Embedded
-//    private Address address;
+    @Embedded
+    private Address address;
 
     private String phoneNumber;
 
     private String email;
 
-//    private RoleEnum role;
+    private RoleEnum role;
 
     private BigInteger cash;
 }
