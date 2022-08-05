@@ -1,1 +1,3 @@
 rootProject.name = 'mlmall'
+
+include 'app-api', 'app-auth', 'app-common'
