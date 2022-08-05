@@ -1,0 +1,2 @@
+insert into member (member_id, name, phone_number, email, cash, city, street, zipcode) values (1, '성건희', '010-0000-1020', 'test@naver.com', 1000, '수원시', '영통구 매탄동', '시그니엘 10-341');
+insert into member (member_id, name, phone_number, email, cash, city, street, zipcode) values (2, '이예지', '010-1111-4124', 'ieg24@naver.com', 23000, '성남시', '분당구 미금', '롯데캐슬 35-13');

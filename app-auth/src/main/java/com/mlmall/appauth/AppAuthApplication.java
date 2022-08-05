@@ -1,13 +1,13 @@
-package com.mlmall;
+package com.mlmall.appauth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MlmallApplication {
+public class AppAuthApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MlmallApplication.class, args);
+		SpringApplication.run(AppAuthApplication.class, args);
 	}
 
 }

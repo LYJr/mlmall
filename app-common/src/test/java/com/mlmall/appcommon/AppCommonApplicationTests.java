@@ -1,13 +1,13 @@
-package com.mlmall;
+package com.mlmall.appcommon;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MlmallApplicationTests {
+class AppCommonApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
