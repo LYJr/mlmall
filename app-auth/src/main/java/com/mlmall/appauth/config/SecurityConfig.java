@@ -29,7 +29,7 @@ public class SecurityConfig {
                     .frameOptions().disable()
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/user/**").authenticated()
+                    .antMatchers("/members/**").authenticated()
                     .antMatchers("/admin/**").hasAnyRole(Role.SELLER.name(), Role.MANAGER.name())
                     .antMatchers("/manager/**").hasRole(Role.MANAGER.name())
                     .anyRequest().permitAll()

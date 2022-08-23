@@ -1,12 +1,12 @@
 spring:
   jpa:
-    # jpa ?? sql ??
+    # jpa 수행 sql 출력
     show-sql: true
     hibernate:
-      # ??? ?? ???? ??? ?? ??. ?? - create, ??? - none, ?? ??? ??? - update
+      # 객체를 보고 자동으로 테이블 생성 여부. 생성 - create, 비생성 - none, 객체 속성값 초기화 - update
       ddl-auto: create
 
-  # H2 ??? DB ??
+  # H2 DB 설정
   datasource:
     url: jdbc:h2:tcp://localhost/~/test
     driver-class-name: org.h2.Driver
@@ -19,9 +19,7 @@ spring:
       path: /h2
       # localhost:port/h2
       settings:
-        # ?? ?? ?? ??
         trace: false
-        #????? ??
         web-allow-others: true
 
   profiles:
