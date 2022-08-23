@@ -44,3 +44,9 @@ project(':app-api') {
 		compileOnly project(':app-common')
 	}
 }
+
+project(':app-auth') {
+	dependencies {
+		compileOnly project(':app-common')
+	}
+}
