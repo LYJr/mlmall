@@ -30,8 +30,8 @@ public class SecurityConfig {
                 .and()
                     .authorizeRequests()
                     .antMatchers("/members/**").authenticated()
-                    .antMatchers("/admin/**").hasAnyRole(Role.SELLER.name(), Role.MANAGER.name())
-                    .antMatchers("/manager/**").hasRole(Role.MANAGER.name())
+//                    .antMatchers("/admin/**").hasAnyRole(Role.SELLER.name(), Role.MANAGER.name())
+//                    .antMatchers("/manager/**").hasRole(Role.MANAGER.name())
                     .anyRequest().permitAll()
                 .and()
                 .build();
