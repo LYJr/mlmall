@@ -1,11 +1,19 @@
 package com.mlmall.appapi.service;
 
+import com.mlmall.appcommon.repository.OrderFormRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// 거니 코로나 확진 기념
 public class OrderFormService {
+
+    @Autowired
+    private OrderFormRepository repository;
 
     /**
      * 1. 주문서 폼 작성 ( 주문번호 있어야함. 폼 이미지, 폼 제목, 판매일정, 배송일정, 판매국가, 태그?, 결제수단 선택할수있게)
@@ -24,37 +32,36 @@ public class OrderFormService {
 
     Map<String, OrderForms> repo = new HashMap();
 
-    public void 주문서_작성(OrderItem orderItem) {
+    public void 주문서_작성(OrderItemDto orderItem) {
         String userId = orderItem.getUserId();
 
         OrderForms orderForm = new OrderForms();
         orderForm.settingItem(orderItem);
 
-        repo.put(userId, orderForm);
+        repository.save(orderForm);
     }
 
-    public void 주문서_수정(OrderItem orderItem) {
-        String userId = orderItem.getUserId();
-
-        OrderForms orderForm = repo.get(userId);
+    @Transactional
+    //트랜젝션 끝날 때 save문 안하고 업데이트 하는 방법 있나? 테스트 해보기.
+    public void 주문서_수정(Long id, OrderItemDto orderItem) {
+        OrderForm orderForm = repository.findById(id);
         orderForm.updateOrderItem(orderItem);
-
-        repo.put(userId, orderForm);
     }
 
-
-    public void 주문서_조회(String 주문번호) {
-        여튼 주문...  map으로 db를 만들순 없으니 패스.
-
+    public OrderForm 주문서_조회(String 주문번호) {
+        OrderForm orderForm = repository.findByOrderId(주문번호);
+        return OrderForm;
     }
 
-
-    public void 내_주문서_리스트_조회(String userId) {
-        여튼 조회..
+    //특정 상태값에 따른 조회 방법 추가해야함.
+    public List<OrderForm> 내_주문서_리스트_조회(Long id) {
+        OrderForm orderForm = repository.findAllByUserId(id);
+        return OrderForm;
     }
 
-    public void 주문서_삭제(String 주문번호) {
-        여튼 삭제
-        repo.remove(주문번호);
+    @Transactional
+    public void 주문서_삭제(String 주문번호, String 상태값) {
+        OrderForm orderForm = repository.findByOrderId(주문번호);
+        orderForm.settingState(상태값);
     }
 }
