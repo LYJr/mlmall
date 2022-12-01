@@ -6,5 +6,6 @@ import lombok.Getter;
 public enum Order {
 
     수요조사,
-    판매;
+    판매,
+    판매완료;
 }
